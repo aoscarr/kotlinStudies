@@ -1,7 +1,33 @@
 fun main() {
+    /*Aula 01 - Variaveis*/
     println("Bem vindo ao Bytebank, curso 01 do @Alura")
 
-    /*Aula 01 - Variaveis*/
+    val contaArtur = Conta()
+    contaArtur.titular = "Artur"
+    contaArtur.numeroConta = 1001
+    contaArtur.saldo = 500.0
+
+    println("titular da conta: ${contaArtur.titular}")
+    contaArtur.depositar(1200.0)
+    println("saldo da conta: ${contaArtur.saldo}")
+}
+
+class Conta {
+    var titular = ""
+    var numeroConta = 0
+    var saldo = 0.0
+
+    fun depositar(valor : Double){
+        if(valor < 0) {
+            println("Nao eh possivel depositar valor negativo.")
+            return;
+        }
+        this.saldo += valor;
+    }
+}
+
+fun testaLacos() {
+
     // var -> variavel que seu valor pode ser modificado
     // val -> nao permite modificar seu valor. Comecar geralmente com val, se precisar muda para var.
     for (i in 1..5) { // o range com '..' deve ser crescente. Caso deseje que decremente, use downto.
@@ -14,12 +40,10 @@ fun main() {
         println("Saldo da conta: $saldo")
 
         testaCondicoes(saldo);
-        testaDownTo()
+        testaLacos()
         println()
     }
-}
-
-fun testaDownTo() {
+    // for decrescente.
     for(i in 5 downTo 1 step 2){ //para pular e parar, usa if com continue ou break.
         println(i)
     }
