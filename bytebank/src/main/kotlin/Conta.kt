@@ -1,4 +1,4 @@
-class Conta(
+open class Conta(
     var titular: String,
     val numero: Int = 0
 
@@ -18,7 +18,7 @@ class Conta(
         this.saldo += valor;
     }
 
-    fun sacar(valor: Double) {
+    open fun sacar(valor: Double) {
         if (this.saldo < valor) {
             println("NEGADO: Saldo insuficiente.")
             return;
